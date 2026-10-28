@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /q/
+
+Sitemap: https://YOUR-DOMAIN.com/sitemap.xml

@@ -1,0 +1,12 @@
+# Manual test checklist
+- [ ] Create poll (each vibe, both genders); contenders are named correctly
+- [ ] Open link in a second browser: results are blocked until a vote is cast (`/results` returns 403)
+- [ ] Vote; confirm sheet; unsealing animation; cannot vote twice (409 handled)
+- [ ] Counts and percentages update on refresh (12 s polling)
+- [ ] Card Studio: every design x animation x size, all 3 kinds
+- [ ] PNG, GIF, video download; native share on Android and iOS
+- [ ] WhatsApp link preview shows the dynamic OG image
+- [ ] Delete poll as creator; opt-out form; `npm run purge`
+- [ ] Rate limits (spam the create endpoint -> 429)
+- [ ] Reduced-motion setting, keyboard navigation, 360px wide screen
+- [ ] GA banner only appears when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set
