@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, type CSSProperties } from 'react';
+import { createPortal } from 'react-dom';
 import { useToast } from './Toast';
 
 interface Props {
@@ -87,7 +88,10 @@ export default function ShareSheet({ open, onClose, url, text, onShareImage }: P
     { id: 'more', label: 'More', emoji: '⋯', bg: 'rgba(255,255,255,.16)', action: nativeShare },
   ];
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  // Portal to <body> so no ancestor transform/filter can trap this fixed overlay off-screen.
+  return createPortal(
     <div className="sheet-backdrop" onClick={onClose} role="presentation">
       <div className="sheet" role="dialog" aria-modal="true" aria-label="Share" onClick={(e) => e.stopPropagation()}>
         <div className="sheet-handle" />
@@ -127,6 +131,7 @@ export default function ShareSheet({ open, onClose, url, text, onShareImage }: P
           Close
         </button>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
